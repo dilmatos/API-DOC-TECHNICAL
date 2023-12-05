@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://brewdatTM-api-porta/api/v1"
+      "url": "https://abi-apim-brewdat-tech-metadata.azure-ai.net"
     }
   ],
   "paths": {
@@ -23,28 +23,28 @@
               "example": {
                 "dlz": "BEES",
                 "zone": "AFR",
-                "business_domain": "Customer",
-                "business_Sub-Domain": "-",
-                "subregion": "-",
-                "data_Product": "Sap",
+                "businessDomain": "Customer",
+                "businessSubDomain": "-",
+                "subRegion": "-",
+                "dataProduct": "Sap",
                 "objects": {
-                  "type_object":  "Table",
-                  "table_name": "gh_customer",
+                  "typePbject":  "Table",
+                  "tableName": "gh_customer",
                   "tableCalassification": "Cadastral",
                   "tableType": "External",
                   "productName": "brewdat_uc_bees_qa",
-                  "schema_Name": "brz_bees_sales_files",
+                  "schemaName": "brz_bees_sales_files",
                   "columns": [
                     {
                       "columnName": "customer_nm",
                         "datatype": "string",
-                        "length_Column": "50",
-                        "IsBusinessKey": "No",
-                        "BusinessKeyName": "",
-                        "IsPrimaryKey": "No",
-                        "PrimaryKeyName": "",
-                        "IsForeignKey": "No",
-                        "ForeignKeyName": "",
+                        "lengthColumn": "50",
+                        "isBusinessKey": "No",
+                        "businessKeyName": "",
+                        "isPrimaryKey": "No",
+                        "primaryKeyName": "",
+                        "isForeignKey": "No",
+                        "foreignKeyName": "",
                         "hasDataMasking": "No",
                         "dataMaskingFormat": "",
                         "hasPartition": "No",
@@ -53,7 +53,7 @@
                     }
                   ]
                 }
-              }
+              
             }
           }
         },
@@ -119,21 +119,21 @@
             "HeaderTechnicalMetadata": {
               "type": "object",
               "properties": {
-                "ObjectType": {"type": "string", "description": "Object Type. Ex: table"},
+                "objecType": {"type": "string", "description": "Object Type. Ex: table"},
                 "tableName": {"type": "string", "description": "Table Name"},
                 "dlz": {"type": "string", "description": "DLZ Abbreviation", "enum": ["AFR","ANLT","APC","AUR", "BEES","BRWR", "EUR", "GHQ", "GHQML",  "IL",  "LOLA", " MRTC",  "MAZ", "MAZML",  " MGMT", "MLPLT", "NAZ", "PPLE", "PLTL", " PRTL", "SPLYC", "NCSA"]},
                 "zone": {"type": "string", "description": "Abbreviation for Zones","enum": ["AFR", "APC", "EUR", "GHQ", "MAZ", "NAZ", "SAZ"]},
-                "business_domain": {"type": "string", "description": "The business domains that are part of the Entity and the Attribute","enum":["Audit", "Common", "Customer", "Finance", "Geo", "Legal", "Logistics", "Marketing", "Order", "People", "Procurement", "Product", "Promotion", "Sales", "Supply", "Technology"]},
-                "business_sub-somain": {"type": "string", "description": "The business sub-domains that are part of the DB"},
-                "sub_region": {"type": "string", "description": "Subregion that a country may have."},
-                "data_product": {"type": "string", "description": "Origin data source name"}
+                "businessDomain": {"type": "string", "description": "The business domains that are part of the Entity and the Attribute","enum":["Audit", "Common", "Customer", "Finance", "Geo", "Legal", "Logistics", "Marketing", "Order", "People", "Procurement", "Product", "Promotion", "Sales", "Supply", "Technology"]},
+                "businessSubDomain": {"type": "string", "description": "The business sub-domains that are part of the DB"},
+                "subRegion": {"type": "string", "description": "Subregion that a country may have."},
+                "dataProduct": {"type": "string", "description": "Origin data source name"}
               },
               "required": ["ObjectType", "tableName", "dlz", "zone", "business_domain", "business_Sub-Domain", "subregion", "data_Product"]
             },
             "TechnicalMetadata": {
               "type": "object",
               "properties": {
-                "object_type": {"type": "string", "description": "Identifies the type of object, such as table or file (Defaults  = Table)", "enum": ["File", "Table"]},
+                "objectType": {"type": "string", "description": "Identifies the type of object, such as table or file (Defaults  = Table)", "enum": ["File", "Table"]},
                 "attributes": {"$ref": "#/components/schemas/TableAttributes"}
               },
               "required": ["object_type", "attributes"]
@@ -141,11 +141,11 @@
             "TableAttributes": {
               "type": "object",
               "properties": {
-                "table_name": {"type": "string", "description": "Table name"},
-                "table_calassification": {"type": "string", "description": "The table Classification will inform whether the table refers to Cadastral or Transactional data.", "enum": ["Cadastral", "Transactional", "Fact", "Dimension"]},
-                "table_type": {"type": "string", "description": "The table type will show us whether the table is Internal or External this is a type inside UC", "enum": ["Internal", "External"]},
-                "product_name": {"type": "string", "description": "The name of the database source from which we will receive the information."},
-                "schema_name": {"type": "string", "description": "The name of the database source schemas that we will receive the information from"},
+                "tableName": {"type": "string", "description": "Table name"},
+                "tableCalassification": {"type": "string", "description": "The table Classification will inform whether the table refers to Cadastral or Transactional data.", "enum": ["Cadastral", "Transactional", "Fact", "Dimension"]},
+                "tableType": {"type": "string", "description": "The table type will show us whether the table is Internal or External this is a type inside UC", "enum": ["Internal", "External"]},
+                "productName": {"type": "string", "description": "The name of the database source from which we will receive the information."},
+                "schemaName": {"type": "string", "description": "The name of the database source schemas that we will receive the information from"},
                 "columns": {
                   "type": "array",
                   "items": {"$ref": "#/components/schemas/ColumnAttributes"}
@@ -156,19 +156,19 @@
             "ColumnAttributes": {
               "type": "object",
               "properties": {
-                   "column_name": {"type": "string", "description": "Column name"},
+                   "columnName": {"type": "string", "description": "Column name"},
                    "datatype": {"type": "string", "description": "Column datatype (string/int/etc.)", "enum": ["integer", "varchar", "Blob", "Lob", "Decimal", "Float", "Char"]},
-                    "length_column": {"type": "string", "description": "Informs the size of the information that the field will store."},
-                    "is_business_key": {"type": "string", "description": "Indicator if the field is a business key.", "enum": ["Yes", "No"]},
-                    "business_key_name": {"type": "string", "description": "Business key name"},
-                    "is_primary_key": {"type": "string", "description": "Indicator if the field is a primary key (unique)", "enum": ["Yes", "No"]},
-                    "primary_key_name": {"type": "string", "description": "Primary key name"},
-                    "is_foreign_key": {"type": "string", "description": "Indicator if the field is foreign, that is, it comes from another table.", "enum": ["Yes", "No"]},
-                    "foreign_key_name": {"type": "string", "description": "Foreign key name"},
-                    "has_data_masking": {"type": "string", "description": "Indicates whether the field has data masking.", "enum": ["Yes", "No"]},
-                    "data_masking_format": {"type": "string", "description": "The field masking format"},
-                    "has_partition": {"type": "string", "description": "Indicates whether the field is a partition.", "enum": ["Yes", "No"]},
-                    "data_partition_format": {"type": "string", "description": "Enter the partition format."}
+                    "lengthColumn": {"type": "string", "description": "Informs the size of the information that the field will store."},
+                    "isBusinessKey": {"type": "string", "description": "Indicator if the field is a business key.", "enum": ["Yes", "No"]},
+                    "businessKeyName": {"type": "string", "description": "Business key name"},
+                    "isPrimaryKey": {"type": "string", "description": "Indicator if the field is a primary key (unique)", "enum": ["Yes", "No"]},
+                    "primaryKeyName": {"type": "string", "description": "Primary key name"},
+                    "isForeignKey": {"type": "string", "description": "Indicator if the field is foreign, that is, it comes from another table.", "enum": ["Yes", "No"]},
+                    "foreignKeyName": {"type": "string", "description": "Foreign key name"},
+                    "hasDataMasking": {"type": "string", "description": "Indicates whether the field has data masking.", "enum": ["Yes", "No"]},
+                    "dataMaskingformat": {"type": "string", "description": "The field masking format"},
+                    "hasPartition": {"type": "string", "description": "Indicates whether the field is a partition.", "enum": ["Yes", "No"]},
+                    "dataPartitionFormat": {"type": "string", "description": "Enter the partition format."}
               },
               "required": ["IsPrimaryKey", "PrimaryKeyName"] 
             },
@@ -184,6 +184,7 @@
           }      
         }   
       } 
+    }
 
       
   
