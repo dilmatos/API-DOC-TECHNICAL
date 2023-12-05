@@ -32,7 +32,7 @@
                   "tableName": "gh_customer",
                   "tableCalassification": "Cadastral",
                   "tableType": "External",
-                  "productName": "brewdat_uc_bees_qa",
+                  "dataCatalogName": "brewdat_uc_bees_qa",
                   "schemaName": "brz_bees_sales_files",
                   "columns": [
                     {
