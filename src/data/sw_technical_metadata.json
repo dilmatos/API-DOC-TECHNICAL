@@ -21,19 +21,15 @@
           "content": {
             "application/json": {
               "example": {
-                "ObjectType": "table",
-                "tableName": "gh_customer",
                 "dlz": "BEES",
                 "zone": "AFR",
                 "business_domain": "Customer",
                 "business_Sub-Domain": "-",
                 "subregion": "-",
                 "data_Product": "Sap",
-                "type_object": {
-                  "object_type": "Table"
-                },
                 "objects": {
-                  "name": "gh_customer",
+                  "type_object":  "Table",
+                  "table_name": "gh_customer",
                   "tableCalassification": "Cadastral",
                   "tableType": "External",
                   "productName": "brewdat_uc_bees_qa",
