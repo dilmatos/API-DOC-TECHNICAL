@@ -156,11 +156,8 @@
             "ColumnAttributes": {
               "type": "object",
               "properties": {
-                "columnName": {"type": "string", "description": "Column name"},
-                "attributes": {
-                  "type": "object",
-                  "properties": {
-                    "datatype": {"type": "string", "description": "Column datatype (string/int/etc.)", "enum": ["integer", "varchar", "Blob", "Lob", "Decimal", "Float", "Char"]},
+                   "columnName": {"type": "string", "description": "Column name"},
+                   "datatype": {"type": "string", "description": "Column datatype (string/int/etc.)", "enum": ["integer", "varchar", "Blob", "Lob", "Decimal", "Float", "Char"]},
                     "length_Column": {"type": "string", "description": "Informs the size of the information that the field will store."},
                     "IsBusinessKey": {"type": "string", "description": "Indicator if the field is a business key.", "enum": ["Yes", "No"]},
                     "BusinessKeyName": {"type": "string", "description": "Business key name"},
@@ -172,8 +169,6 @@
                     "dataMaskingFormat": {"type": "string", "description": "The field masking format"},
                     "hasPartition": {"type": "string", "description": "Indicates whether the field is a partition.", "enum": ["Yes", "No"]},
                     "dataPartitionFormat": {"type": "string", "description": "Enter the partition format."}
-                  }
-                }
               },
               "required": ["IsPrimaryKey", "PrimaryKeyName"] 
             },
