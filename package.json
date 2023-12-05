@@ -1,0 +1,17 @@
+{
+  "name": "API-DOC-TECHNICAL",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dilmatos/API-DOC-TECHNICAL.git",
+  "author": "DilmaraMatos <dilmara.matos77@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "scripts": {
+    "start": "node ./index_tm.js"
+  }
+}
