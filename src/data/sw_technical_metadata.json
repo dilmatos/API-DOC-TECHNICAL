@@ -28,7 +28,7 @@
                 "subRegion": "-",
                 "dataProduct": "Sap",
                 "objects": {
-                  "typePbject":  "Table",
+                  "objectType":  "Table",
                   "tableName": "gh_customer",
                   "tableCalassification": "Cadastral",
                   "tableType": "External",
