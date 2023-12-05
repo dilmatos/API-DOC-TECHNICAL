@@ -37,7 +37,6 @@
                   "columns": [
                     {
                       "columnName": "customer_nm",
-                      "attributes": {
                         "datatype": "string",
                         "length_Column": "50",
                         "IsBusinessKey": "No",
@@ -50,7 +49,7 @@
                         "dataMaskingFormat": "",
                         "hasPartition": "No",
                         "dataPartitionFormat": ""
-                      }
+                      
                     }
                   ]
                 }
