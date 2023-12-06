@@ -30,8 +30,7 @@
                 "dataProduct"      : "Sap"
                 },
                 "technicalMetadataStructure": {
-                  "objectType":  "Table"
-                },
+                  "objectType":  "Table",
                 "TableAttributes":{
                   "tableName"           : "gh_customer",
                   "tableCalassification": "Cadastral",
@@ -57,7 +56,7 @@
                       
                     }
                   ]
-                }
+              }
               
             }
           }
