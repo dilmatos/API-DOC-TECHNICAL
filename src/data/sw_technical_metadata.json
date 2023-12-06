@@ -127,13 +127,15 @@
               "type": "object",
               "properties": {
                 "objecType": {"type": "string", "description": "Object Type. Ex: table"},
-                "tableName": {"type": "string", "description": "Table Name"},
                 "dlz": {"type": "string", "description": "DLZ Abbreviation", "enum": ["AFR","ANLT","APC","AUR", "BEES","BRWR", "EUR", "GHQ", "GHQML",  "IL",  "LOLA", " MRTC",  "MAZ", "MAZML",  " MGMT", "MLPLT", "NAZ", "PPLE", "PLTL", " PRTL", "SPLYC", "NCSA"]},
                 "zone": {"type": "string", "description": "Abbreviation for Zones","enum": ["AFR", "APC", "EUR", "GHQ", "MAZ", "NAZ", "SAZ"]},
                 "businessDomain": {"type": "string", "description": "The business domains that are part of the Entity and the Attribute","enum":["Audit", "Common", "Customer", "Finance", "Geo", "Legal", "Logistics", "Marketing", "Order", "People", "Procurement", "Product", "Promotion", "Sales", "Supply", "Technology"]},
                 "businessSubDomain": {"type": "string", "description": "The business sub-domains that are part of the DB"},
                 "subRegion": {"type": "string", "description": "Subregion that a country may have."},
-                "dataProduct": {"type": "string", "description": "Origin data source name"}
+                "dataProduct": {"type": "string", "description": "Origin data source name"},
+                "dataCatalogName":{"type": "string", "description": "Catalog Name"},
+                "schemaName": {"type": "string", "description": "The name of the database source schemas that we will receive the information from"},
+                "tableName": {"type": "string", "description": "Table name"}
               },
               "required": ["ObjectType", "tableName", "dlz", "zone", "business_domain", "business_Sub-Domain", "subregion", "data_Product"]
             },
@@ -148,10 +150,9 @@
             "TableAttributes": {
               "type": "object",
               "properties": {
-                "tableName": {"type": "string", "description": "Table name"},
                 "tableClassification": {"type": "string", "description": "The table Classification will inform whether the table refers to Cadastral or Transactional data.", "enum": ["Cadastral", "Transactional", "Fact", "Dimension"]},
                 "tableType": {"type": "string", "description": "The table type will show us whether the table is Internal or External this is a type inside UC", "enum": ["Internal", "External"]},
-                "schemaName": {"type": "string", "description": "The name of the database source schemas that we will receive the information from"},
+
                 "columns": {
                   "type": "array",
                   "items": {"$ref": "#/components/schemas/ColumnAttributes"}
