@@ -120,7 +120,7 @@
                 "schemaName": {"type": "string", "description": "The name of the database source schemas that we will receive the information from"},
                 "tableName": {"type": "string", "description": "Table name"}
               },
-              "required": ["ObjectType", "dlz", "zone", "business_domain", "data_Product", "schemaName","tableName"]
+              "required": ["ObjectType", "dlz", "zone", "business_domain", "dataProduct", "dataCatalogName", "schemaName", "tableName"]
             },
             "TechnicalMetadata": {
               "type": "object",
@@ -154,7 +154,7 @@
                     "hasPartition": {"type": "string", "description": "Indicates whether the field is a partition.", "enum": ["Yes", "No"]},
                     "dataPartitionFormat": {"type": "string", "description": "Enter the partition format."}
               },
-              "required": ["columnName","datatype","IsPrimaryKey", "PrimaryKeyName"] 
+              "required": ["columnName", "datatype", "lengthColumn", "isPrimaryKey", "primaryKeyName"] 
             },
             "Validation": {
               "type": "object",
