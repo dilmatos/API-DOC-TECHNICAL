@@ -21,33 +21,38 @@
           "content": {
             "application/json": {
               "example": {
-                "dlz": "BEES",
-                "zone": "AFR",
-                "businessDomain": "Customer",
+                "headerBusinessMetadataStrucutre": {
+                "dlz"              : "BEES",
+                "zone"             : "AFR",
+                "businessDomain"   : "Customer",
                 "businessSubDomain": "-",
-                "subRegion": "-",
-                "dataProduct": "Sap",
-                "objects": {
-                  "objectType":  "Table",
-                  "tableName": "gh_customer",
+                "subRegion"        : "-",
+                "dataProduct"      : "Sap"
+                },
+                "technicalMetadataStructure": {
+                  "objectType":  "Table"
+                },
+                "TableAttributes":{
+                  "tableName"           : "gh_customer",
                   "tableCalassification": "Cadastral",
-                  "tableType": "External",
-                  "dataCatalogName": "brewdat_uc_bees_qa",
-                  "schemaName": "brz_bees_sales_files",
-                  "columns": [
+                  "tableType"           : "External",
+                  "dataCatalogName"     : "brewdat_uc_bees_qa",
+                  "schemaName"          : "brz_bees_sales_files"
+                },
+                  "ColumnAttributes": [
                     {
-                      "columnName": "customer_nm",
-                        "datatype": "string",
-                        "lengthColumn": "50",
-                        "isBusinessKey": "No",
-                        "businessKeyName": "",
-                        "isPrimaryKey": "No",
-                        "primaryKeyName": "",
-                        "isForeignKey": "No",
-                        "foreignKeyName": "",
-                        "hasDataMasking": "No",
-                        "dataMaskingFormat": "",
-                        "hasPartition": "No",
+                      "columnName"           : "customer_nm",
+                        "datatype"           : "string",
+                        "lengthColumn"       : "50",
+                        "isBusinessKey"      : "No",
+                        "businessKeyName"    : "",
+                        "isPrimaryKey"       : "No",
+                        "primaryKeyName"     : "",
+                        "isForeignKey"       : "No",
+                        "foreignKeyName"     : "",
+                        "hasDataMasking"     : "No",
+                        "dataMaskingFormat"  : "",
+                        "hasPartition"       : "No",
                         "dataPartitionFormat": ""
                       
                     }
