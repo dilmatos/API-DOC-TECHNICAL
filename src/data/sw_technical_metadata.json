@@ -35,11 +35,9 @@
                 "technicalMetadataStructure": {
                   "objectType":  "Table",
                 "TableAttributes":{
-                  
                   "tableCalassification": "Cadastral",
                   "tableType"           : "External"
-
-                },
+                  },
                   "ColumnAttributes": [
                     {
                       "columnName"           : "customer_nm",
@@ -54,73 +52,58 @@
                         "hasDataMasking"     : "No",
                         "dataMaskingFormat"  : "",
                         "hasPartition"       : "No",
-                        "dataPartitionFormat": ""
-                      
+                        "dataPartitionFormat": ""                       
+                  }
+                ]
+              }
+            }
+          } 
+       }
+      },        
+            "responses": 
+            {
+              "200": {
+                "description": "Successful response - Header",
+                "content": {
+                  "application/json": {
+                    "schema": {"$ref": "#/components/schemas/HeaderTechnicalMetadata"},
+                    "example": {"message": "Request processed successfully!"}
+                  }
+                }
+              },
+              "201": {
+                "description": "Successful response - Body",
+                "content": {
+                  "application/json": {
+                    "schema": {"$ref": "#/components/schemas/TechnicalMetadata"},
+                    "example": {"message": "Request processed successfully!"}
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal server error",
+                "content": {
+                  "application/json": {
+                    "example": {
+                      "error": "An internal error has occurred."
                     }
-                  ]
-              }
-              
-            }
-          }
-        },
-        "responses": 
-        {
-          "200": {
-            "description": "Successful response - Header",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HeaderTechnicalMetadata"
-                },
-                "example": {
-                  "message": "Request processed successfully!"
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid value",
+                "content": {
+                  "application/json": {
+                    "schema": {"$ref": "#/components/schemas/Validation"},
+                    "example": {"message": "Invalid value."}
+                    }
                 }
               }
             }
-          },
-          "201": {
-            "description": "Successful response - Body",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TechnicalMetadata"
-                },
-                "example": {
-                  "message": "Request processed successfully!"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "example": {
-                  "error": "An internal error has occurred."
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid value",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Validation"
-                },
-                "example": {
-                  "message": "Invalid value."
-                }
-              }
-            }
-          }
-        }
-       } 
-      }
+      } 
     }
   },
-
-   "components": 
+     "components": 
       {
           "schemas": {
             "HeaderTechnicalMetadata": {
@@ -137,28 +120,22 @@
                 "schemaName": {"type": "string", "description": "The name of the database source schemas that we will receive the information from"},
                 "tableName": {"type": "string", "description": "Table name"}
               },
-              "required": ["ObjectType", "tableName", "dlz", "zone", "business_domain", "business_Sub-Domain", "subregion", "data_Product"]
+              "required": ["ObjectType", "dlz", "zone", "business_domain", "data_Product", "schemaName","tableName"]
             },
             "TechnicalMetadata": {
               "type": "object",
               "properties": {
                 "objectType": {"type": "string", "description": "Identifies the type of object, such as table or file (Defaults  = Table)", "enum": ["File", "Table"]},
-                "attributes": {"$ref": "#/components/schemas/TableAttributes"}
-              },
-              "required": ["object_type", "attributes"]
+                "attributes": {"$ref": "#/components/schemas/TableAttributes"},
+                "columns": {"$ref": "#/components/schemas/ColumnAttributes"}
+              }
             },
             "TableAttributes": {
               "type": "object",
               "properties": {
                 "tableClassification": {"type": "string", "description": "The table Classification will inform whether the table refers to Cadastral or Transactional data.", "enum": ["Cadastral", "Transactional", "Fact", "Dimension"]},
-                "tableType": {"type": "string", "description": "The table type will show us whether the table is Internal or External this is a type inside UC", "enum": ["Internal", "External"]},
-
-                "columns": {
-                  "type": "array",
-                  "items": {"$ref": "#/components/schemas/ColumnAttributes"}
-                }
-              },
-              "required": ["name", "productName", "schema_Name", "columns"]
+                "tableType": {"type": "string", "description": "The table type will show us whether the table is Internal or External this is a type inside UC", "enum": ["Internal", "External"]}
+              }
             },
             "ColumnAttributes": {
               "type": "object",
@@ -177,7 +154,7 @@
                     "hasPartition": {"type": "string", "description": "Indicates whether the field is a partition.", "enum": ["Yes", "No"]},
                     "dataPartitionFormat": {"type": "string", "description": "Enter the partition format."}
               },
-              "required": ["IsPrimaryKey", "PrimaryKeyName"] 
+              "required": ["columnName","datatype","IsPrimaryKey", "PrimaryKeyName"] 
             },
             "Validation": {
               "type": "object",
@@ -189,8 +166,8 @@
               }
             }
           }      
-        }   
-      } 
+        }    
+    } 
 
 
       
