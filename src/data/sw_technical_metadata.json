@@ -27,16 +27,18 @@
                 "businessDomain"   : "Customer",
                 "businessSubDomain": "-",
                 "subRegion"        : "-",
-                "dataProduct"      : "Sap"
+                "dataProduct"      : "Sap",
+                "schemaName"          : "brz_bees_sales_files",
+                "dataCatalogName"     : "brewdat_uc_bees_qa",
+                "tableName"           : "gh_customer"
                 },
                 "technicalMetadataStructure": {
                   "objectType":  "Table",
                 "TableAttributes":{
-                  "tableName"           : "gh_customer",
+                  
                   "tableCalassification": "Cadastral",
-                  "tableType"           : "External",
-                  "dataCatalogName"     : "brewdat_uc_bees_qa",
-                  "schemaName"          : "brz_bees_sales_files"
+                  "tableType"           : "External"
+
                 },
                   "ColumnAttributes": [
                     {
@@ -147,9 +149,8 @@
               "type": "object",
               "properties": {
                 "tableName": {"type": "string", "description": "Table name"},
-                "tableCalassification": {"type": "string", "description": "The table Classification will inform whether the table refers to Cadastral or Transactional data.", "enum": ["Cadastral", "Transactional", "Fact", "Dimension"]},
+                "tableClassification": {"type": "string", "description": "The table Classification will inform whether the table refers to Cadastral or Transactional data.", "enum": ["Cadastral", "Transactional", "Fact", "Dimension"]},
                 "tableType": {"type": "string", "description": "The table type will show us whether the table is Internal or External this is a type inside UC", "enum": ["Internal", "External"]},
-                "productName": {"type": "string", "description": "The name of the database source from which we will receive the information."},
                 "schemaName": {"type": "string", "description": "The name of the database source schemas that we will receive the information from"},
                 "columns": {
                   "type": "array",
